@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBridge - Video Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="main-header">
+        <div class="logo">Skill<span>Bridge</span></div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-btn">Home</a>
+            <a href="../login.html" class="nav-btn">Login</a>
+            <a href="../signup.html" class="nav-btn">Signup</a>
+            <a href="index.html" class="nav-btn active">Video Chat</a>
+        </div>
+    </nav>
+
+    <div class="app-container">
+        <header class="video-header">
+            <h1>Video Chat</h1>
+            <p id="connection-status" class="status">Not connected</p>
+        </header>
+
+        <div id="join-screen" class="join-screen">
+            <input type="text" id="room-id-input" placeholder="Enter Room ID">
+            <button id="join-btn" class="btn-hero">Join Room</button>
+        </div>
+
+        <div id="room-screen" class="room-screen" style="display: none;">
+            <div class="video-grid">
+                <div class="video-wrapper">
+                    <h3>You</h3>
+                    <video id="my-video" playsinline muted autoplay class="video-player"></video>
+                </div>
+                <div id="remote-video-container" class="video-wrapper" style="display: none;">
+                    <h3>Remote User</h3>
+                    <video id="user-video" playsinline autoplay class="video-player"></video>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="call-start-btn" class="btn-hero" style="display: none;">Start Call</button>
+            </div>
+
+            <div class="chat-section">
+                <div id="chat-window" class="chat-window"></div>
+                <form id="chat-form" class="chat-form">
+                    <input type="text" id="chat-input" placeholder="Type a message...">
+                    <button type="submit" class="btn-hero">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- SDKs -->
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-peer/9.11.1/simplepeer.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
